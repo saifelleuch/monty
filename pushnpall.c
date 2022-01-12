@@ -11,7 +11,7 @@ void push(stack_t **stack, unsigned int line_number)
 	char *arg_push;
 	stack_t *new_stack;
 
-	arg_push = strtock(NULL, " ");
+	arg_push = strtok(NULL, " ");
 	if (arg_push == NULL || int_check(arg_push) == 0)
 	{
 		dprintf(STDOUT_FILENO, "L%u: usage: push integer", line_number);
@@ -27,8 +27,10 @@ void push(stack_t **stack, unsigned int line_number)
 	new_stack->next = *stack;
 	new_stack->prev = NULL;
 	if (*stack != NULL)
+	{
 		(*stack)->prev = new_stack;
-		*stack = new->stack;
+		(*stack) = new_stack->next;
+	}
 }
 
 /**
