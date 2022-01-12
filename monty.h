@@ -1,8 +1,20 @@
-#define MAIN_H
-#ifndef MAIN_H
+#ifndef MONTY_H
+#define MONTY_H
 
-FILE *of;
-char *func;
+#define _POSIX_C_SOURCE  200809L
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <string.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <ctype.h>
+
+FILE *of = NULL;
+char *func = NULL;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -43,6 +55,6 @@ void pop(stack_t **stack, unsigned int line_number);
 void m_nop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
-
+void get_func(char *func, stack_t **stack, unsigned int line_number);
 
 #endif
