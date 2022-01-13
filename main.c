@@ -19,14 +19,14 @@ int main(int argc, char **argv)
 		dprintf(STDOUT_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	fo = fopen(argv[1], "r");
-	if (fo == NULL)
+	of = fopen(argv[1], "r");
+	if (of == NULL)
 	{
 		dprintf(STDOUT_FILENO, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	while (getline(&buffer, &n, fo) != -1)
+	while (getline(&buffer, &n, of) != -1)
 	{
 		line_number++;
 		func = strtok(buffer, " \n");
