@@ -11,16 +11,16 @@ void push(stack_t **stack, unsigned int line_number)
 	char *arg_push;
 	stack_t *new_stack;
 
-	arg_push = strtok(NULL, " ");
+	arg_push = strtok(NULL, " \n\t");
 	if (arg_push == NULL || int_check(arg_push) == 0)
 	{
-		dprintf(STDOUT_FILENO, "L%u: usage: push integer", line_number);
+		dprintf(STDOUT_FILENO, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	new_stack = malloc(sizeof(stack_t));
 	if (new_stack == NULL)
 	{
-		dprintf(STDOUT_FILENO, "Error: malloc failed");
+		dprintf(STDOUT_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	new_stack->n = atoi(arg_push);
