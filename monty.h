@@ -13,8 +13,6 @@
 #include <unistd.h>
 #include <ctype.h>
 
-FILE *of = NULL;
-char *func = NULL;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
