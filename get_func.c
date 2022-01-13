@@ -20,7 +20,7 @@ void get_func(char *func, stack_t **stack, unsigned int line_number)
 	};
 	size_t i;
 
-	for (i = 0; valid_func[i] != NULL; i++)
+	for (i = 0; valid_func[i].opcode != NULL; i++)
 	{
 		if (strcmp(valid_func[i].opcode, func) == 0)
 		{
@@ -29,6 +29,6 @@ void get_func(char *func, stack_t **stack, unsigned int line_number)
 		}
 
 	}
-	dprintf(STDOUT_FILENO, "L%u: unknown instruction %d\n", line_number, func);
+	dprintf(STDOUT_FILENO, "L%u: unknown instruction %s\n", line_number, func);
 	exit(EXIT_FAILURE);
 }
